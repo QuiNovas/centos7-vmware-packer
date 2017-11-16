@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+latest_kernel=$(grub2-editenv list | sed 's/^.*(\(.*x86_64\)).*/\1/')
+current_kernel=$(uname -r)
+
+if [[ ${latest_kernel} != ${current_kernel} ]]; then
+    shutdown -r 02:00
+fi
